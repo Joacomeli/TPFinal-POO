@@ -3,14 +3,14 @@ public class Personaje {
     private int nivel;
     private Raza raza;
     private Clase clase;
-    private Arma ArmaEquipada;
-    public void Personaje(String nombre, Raza raza, Clase clase, Arma ArmaEquipada){
+
+    public Personaje(String nombre, int nivel, Raza raza, Clase clase) {
         this.nombre = nombre;
-        this.nivel = 0;
+        this.nivel = nivel;
         this.raza = raza;
         this.clase = clase;
-        this.ArmaEquipada = ArmaEquipada;
     }
+
     public String getNombre(){
         return nombre;
     }
