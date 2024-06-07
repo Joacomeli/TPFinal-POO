@@ -4,7 +4,6 @@ public abstract class Arma {
     protected int ptsDefensa;
     protected int peso;
 
-
     public int getPeso() {
         return peso;
     }
@@ -34,6 +33,7 @@ public abstract class Arma {
     public void setPtsDefensa(int ptsDefensa) {
         this.ptsDefensa = ptsDefensa;
     }
+
 
 
 }
