@@ -2,9 +2,12 @@ import java.util.HashSet;
 
 public class Usuario {
     private String NombreUsuario;
-    private int id;
+    private int id = 0;
+    private int counter= 0;
     HashSet<Personaje> personajesDisponibles = new HashSet<Personaje>();
-    public void Usuario(String nombreUsuario, int id){
+    public void Usuario(String nombreUsuario){
+        id=counter;
+        counter++;
         this.NombreUsuario = nombreUsuario;
         this.id = id;
     }
@@ -19,6 +22,12 @@ public class Usuario {
         }
 
     }
+
+    public Usuario(String nombreUsuario, HashSet<Personaje> personajesDisponibles) {
+        NombreUsuario = nombreUsuario;
+        this.personajesDisponibles = personajesDisponibles;
+    }
+
     public boolean estaPersonaje(Personaje personaje){
         return personajesDisponibles.contains(personaje);
     }
