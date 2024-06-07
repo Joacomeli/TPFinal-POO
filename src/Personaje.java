@@ -4,9 +4,9 @@ public class Personaje {
     private Raza raza;
     private Clase clase;
 
-    public Personaje(String nombre, int nivel, Raza raza, Clase clase) {
+    public Personaje(String nombre, Raza raza, Clase clase) {
         this.nombre = nombre;
-        this.nivel = nivel;
+        this.nivel = 0;
         this.raza = raza;
         this.clase = clase;
     }

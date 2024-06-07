@@ -1,32 +1,26 @@
-import java.util.HashSet;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class Usuario {
     private String NombreUsuario;
-    private int id = 0;
-    private int counter= 0;
-    HashSet<Personaje> personajesDisponibles = new HashSet<Personaje>();
-    public void Usuario(String nombreUsuario){
-        id=counter;
-        counter++;
+    private int idUsuario ;
+    ArrayList <Personaje> personajes = new ArrayList<Personaje>();
+    public Usuario(String nombreUsuario, int idUsuario){
         this.NombreUsuario = nombreUsuario;
-        this.id = id;
+        this.idUsuario = idUsuario;
     }
-    public void crearPersonaje(String nombre, Raza raza, Clase clase, Arma arma){
-        if (clase.estaArma(arma)){
-            Personaje p = new Personaje();
-            p.Personaje(nombre, raza, clase, arma);
-            personajesDisponibles.add(p);
-            System.out.println("Creacion Correcta");
-        } else {
-            System.out.println("El arma no esta disponible para esa clase");
-        }
+/*
+    public void crearPersonaje(String nombre, Raza raza, Clase clase, int idpersonaje, String banana){
+        Personaje  banana = new Personaje(nombre,raza,clase,idpersonaje);
+        p.Personaje(nombre, raza, clase, arma);
+        personajesDisponibles.add(p);
+        System.out.println("Creacion Correcta");
 
-    }
 
-    public Usuario(String nombreUsuario, HashSet<Personaje> personajesDisponibles) {
-        NombreUsuario = nombreUsuario;
-        this.personajesDisponibles = personajesDisponibles;
-    }
+    }*/
+
+
+/*
 
     public boolean estaPersonaje(Personaje personaje){
         return personajesDisponibles.contains(personaje);
@@ -39,6 +33,7 @@ public class Usuario {
             System.out.println(i.getNombre());
         }
     }
+*/
 
 
 }

@@ -1,5 +1,20 @@
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Main {
     public static void main(String[] args) {
+
+
+        Map<String,Clase> clases = new TreeMap<String,Clase>();
+        Map<Integer,Personaje> personajes = new TreeMap<Integer,Personaje>();
+        Map<String,Raza> razas = new TreeMap<String,Raza>();
+
+        int idUsuario=0;
+        int idPersonaje=0;
+
+
+
         //Crear Armas CuerpoACuerpo
         CuerpoACuerpo EspadaLarga = new CuerpoACuerpo((short) 2.5, (short) 5, "Espada Larga", 50, 20, 15);
         CuerpoACuerpo MazoPesado = new CuerpoACuerpo((short) 3, (short) 2, "Mazo Pesado", 60, 30, 25);
@@ -28,12 +43,14 @@ public class Main {
 
 
         //Crear Clases
-        Clase Clerigo = new Clase("Clerigo", false, false, true, true, 10, 15, 20, 25);
-        Clase Mago = new Clase("Mago", false, false, true, false, 5, 10, 30, 10);
-        Clase Guerrero = new Clase("Guerrero", true, false, false, true, 25, 20, 5, 30);
-        Clase Paladin = new Clase("Paladin", true, false, false, true, 20, 15, 10, 25);
-        Clase Arquero = new Clase("Arquero", false, true, false, false, 15, 25, 10, 20);
-        Clase Asesino = new Clase("Asesino", true, true, false, false, 20, 30, 5, 15);
+
+
+        clases.put("Clerigo", new Clase("Clerigo", false, false, true, true, 10, 15, 20, 25));
+        clases.put("Mago", new Clase("Mago", false, false, true, false, 5, 10, 30, 10));
+        clases.put("Guerrero", new Clase("Guerrero", true, false, false, true, 25, 20, 5, 30));
+        clases.put("Paladin", new Clase("Paladin", true, false, false, true, 20, 15, 10, 25));
+        clases.put("Arquero", new Clase("Arquero", false, true, false, false, 15, 25, 10, 20));
+        clases.put("Asesino", new Clase("Asesino", true, true, false, false, 20, 30, 5, 15));
 
 
 
@@ -47,14 +64,37 @@ public class Main {
         Raza Enano = new Raza("Enano", 14, 10, 18, 8, 10);
 
 
+        personajes.put(idPersonaje, new Personaje("Pepito", Orco,clases.get("Asesino")));
+        idPersonaje++;
+        System.out.println(personajes.get(0).getNombre());
 
-        //Crear Usuario
-        Usuario u1 = new Usuario();
-        u1.Usuario("Marcos", 1111);
-        u1.crearPersonaje("Mike", humano, arquero, arco);
-        u1.crearPersonaje("Jordan", enano, pistolero, arco);
-        u1.crearPersonaje("Roman", zombie, espadachin, katana);
-        u1.imprimirPersonaje();
+
+
+
+
+
+        int cantidadUsuarios = 0;
+        int cantidadPersonajes = 0;
+
+
+
+        /*//Crear Usuario
+        new Usuario("MatiCalles",idUsuario);
+        idUsuario++;
+        Usuario u1 = new Usuario("JoaqoMorelli",idUsuario);
+        idUsuario++;
+        Usuario u3 = new Usuario("RobertoBolanos",idUsuario);
+        idUsuario++;*/
+
+
+
+
+
+
+
+
+
+
 
         /*  Razas
         Humano
