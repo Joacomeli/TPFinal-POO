@@ -67,11 +67,14 @@ public class Main {
         personajes.get(0).agregarArma(escudos.get("Escudo Grande"));
         personajes.get(0).agregarArma(distancia.get("Arco Largo"));
         personajes.get(0).agregarArma(baculos.get("BastonDeFuego"));
-        System.out.println(personajes.get(0).getArmasEquipadas());
+        //System.out.println(personajes.get(0).getArmasEquipadas());
 
         System.out.println(CuerpoACuerpo.class);
         System.out.println(cuerpoACuerpo.get("Espada Larga").getClass());
 
+
+        //personaje 1 le pega a personaje 2
+        //
 
 
 

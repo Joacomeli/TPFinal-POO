@@ -5,16 +5,19 @@ import java.util.Map;
 public class Personaje {
     private String nombre;
     private int nivel;
+    private int vida;
     private Raza raza;
     private Clase clase;
-    ArrayList<Arma> armas = new ArrayList<Arma>();
-    private HashSet<Arma> armasEquipadas = new HashSet<Arma>();
+    private Arma arma;
 
     public Personaje(String nombre, Raza raza, Clase clase) {
         this.nombre = nombre;
         this.nivel = 0;
         this.raza = raza;
         this.clase = clase;
+        this.vida=raza.getConstitucion()*10;
+
+
     }
 
     public int getNivel() {
@@ -29,8 +32,8 @@ public class Personaje {
         return clase;
     }
 
-    public HashSet<Arma> getArmasEquipadas() {
-        return armasEquipadas;
+    public Arma getArmaEquipada() {
+        return arma;
     }
 
     public String getNombre(){
@@ -42,15 +45,17 @@ public class Personaje {
                 clase.isUsaDistancia() && arma.getClass() == Distancia.class ||
                 clase.isUsaEscudos() && arma.getClass() == Escudos.class ||
                 clase.isUsaBaculos() && arma.getClass() == Baculos.class){
-            this.armasEquipadas.add(arma);
+            this.arma=arma;
         } else {
             System.out.println("Arma no disponible para esa clase");
         }
     }
 
-    /*public void agregarArmaBis(Personaje personaje, Arma arma){
-        if (personaje.getClase().isUsaCuerpoACuerpo());
+    public void sacarVida (int dano){
 
-    }*/
+    }
+    //Agregar si ya tiene arma
+
+
 
 }
