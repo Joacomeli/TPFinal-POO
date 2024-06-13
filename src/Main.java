@@ -62,8 +62,15 @@ public class Main {
         personajes.put(idPersonaje, new Personaje("Pepito", razas.get("Orco"),clases.get("Asesino")));
         idPersonaje++;
         System.out.println(personajes.get(0).getNombre());
-        personajes.get(0).agregarArma(baculos.get("Cetro de Trueno"), cuerpoACuerpo, baculos, distancia, escudos);
 
+        personajes.get(0).agregarArma(cuerpoACuerpo.get("Espada Larga"));
+        personajes.get(0).agregarArma(escudos.get("Escudo Grande"));
+        personajes.get(0).agregarArma(distancia.get("Arco Largo"));
+        personajes.get(0).agregarArma(baculos.get("BastonDeFuego"));
+        System.out.println(personajes.get(0).getArmasEquipadas());
+
+        System.out.println(CuerpoACuerpo.class);
+        System.out.println(cuerpoACuerpo.get("Espada Larga").getClass());
 
 
 
