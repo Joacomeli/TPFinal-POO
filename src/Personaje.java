@@ -18,14 +18,6 @@ public class Personaje {
         this.vida = vida;
     }
 
-    public Arma getArma() {
-        return arma;
-    }
-
-    public void setArma(Arma arma) {
-        this.arma = arma;
-    }
-
     public Personaje(String nombre, Raza raza, Clase clase) {
         this.nombre = nombre;
         this.nivel = 0;
@@ -33,7 +25,12 @@ public class Personaje {
         this.clase = clase;
         this.vida=raza.getConstitucion()*10;
     }
-
+    public void setArma(Arma arma){
+        this.arma = arma;
+    }
+    public Arma getArma(){
+        return arma;
+    }
     public int getNivel() {
         return nivel;
     }

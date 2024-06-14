@@ -44,5 +44,5 @@ public class Arma{
     public void setPtsDefensa(int ptsDefensa) {
         this.ptsDefensa = ptsDefensa;
     }
-
+    public String getTipoArma(){return tipoArma;}
 }

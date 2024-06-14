@@ -9,7 +9,7 @@ public class Main {
         Map<String,Clase> clases = new TreeMap<String,Clase>();
         Map<Integer,Personaje> personajes = new TreeMap<Integer,Personaje>();
         Map<String,Raza> razas = new TreeMap<String,Raza>();
-        Map<String,Arma> arma = new TreeMap<String,Arma>();
+        Map<String,Arma> armas = new TreeMap<String,Arma>();
 
         int idUsuario=0;
         int idPersonaje=0;
@@ -17,28 +17,28 @@ public class Main {
 
         //Crear Armas CuerpoACuerpo
         //Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, String tipoArma)
-        arma.put("Espada Larga", new Arma("Espada Larga", 50, 20, 10, 25, "Cuerpo a Cuerpo"));
-        arma.put("Mazo Pesado", new Arma("Mazo Pesado", 60, 30, 5, 50, "Cuerpo a Cuerpo"));
-        arma.put("Hacha Doble", new Arma("Hacha Doble", 55, 25, 5, 30, "Cuerpo a Cuerpo"));
-        arma.put("Daga Ligera", new Arma("Daga Ligera", 30, 10, 3, 15, "Cuerpo a Cuerpo"));
+        armas.put("Espada Larga", new Arma("Espada Larga", 50, 20, 10, 25, "Cuerpo a Cuerpo"));
+        armas.put("Mazo Pesado", new Arma("Mazo Pesado", 60, 30, 5, 50, "Cuerpo a Cuerpo"));
+        armas.put("Hacha Doble", new Arma("Hacha Doble", 55, 25, 5, 30, "Cuerpo a Cuerpo"));
+        armas.put("Daga Ligera", new Arma("Daga Ligera", 30, 10, 3, 15, "Cuerpo a Cuerpo"));
 
         //Crear Arnas Distancia
-        arma.put("Arco Largo", new Arma("Arco Largo", 40, 10, 50, 25, "Distancia"));
-        arma.put("Ballesta", new Arma("Ballesta", 60, 20, 50, 30, "Distancia"));
-        arma.put("Rifle", new Arma("Rifle", 80, 25, 80, 30, "Distancia"));
-        arma.put("Pistola", new Arma("Pistola", 30, 15, 80, 15, "Distancia"));
+        armas.put("Arco Largo", new Arma("Arco Largo", 40, 10, 50, 25, "Distancia"));
+        armas.put("Ballesta", new Arma("Ballesta", 60, 20, 50, 30, "Distancia"));
+        armas.put("Rifle", new Arma("Rifle", 80, 25, 80, 30, "Distancia"));
+        armas.put("Pistola", new Arma("Pistola", 30, 15, 80, 15, "Distancia"));
 
         //Crear Armas Baculos
-        arma.put("Bastón de Fuego", new Arma("Bastón de Fuego", 70, 10, 80, 30, "Baculo"));
-        arma.put("Varita de Hielo", new Arma("Varita de Hielo", 60, 15, 80, 30, "Baculo"));
-        arma.put("Cetro de Trueno", new Arma("Cetro de Trueno", 80, 20, 80, 30, "Baculo"));
-        arma.put("Bastón Curativo", new Arma("Bastón Curativo", 50, 25, 80, 30, "Baculo"));
+        armas.put("Bastón de Fuego", new Arma("Bastón de Fuego", 70, 10, 80, 30, "Baculo"));
+        armas.put("Varita de Hielo", new Arma("Varita de Hielo", 60, 15, 80, 30, "Baculo"));
+        armas.put("Cetro de Trueno", new Arma("Cetro de Trueno", 80, 20, 80, 30, "Baculo"));
+        armas.put("Bastón Curativo", new Arma("Bastón Curativo", 50, 25, 80, 30, "Baculo"));
 
         //Crear Armas Escudos
-        arma.put("Escudo Grande", new Arma("Escudo Grande", 10, 50, 3, 80, "Escudo"));
-        arma.put("Escudo Pequeño", new Arma("Escudo Pequeño", 5, 30, 3, 40, "Escudo"));
-        arma.put("Escudo Reforzado", new Arma("Escudo Reforzado", 15, 60, 3, 120, "Escudo"));
-        arma.put("Escudo Mágico", new Arma("Escudo Mágico", 20, 70, 3, 60, "Escudo"));
+        armas.put("Escudo Grande", new Arma("Escudo Grande", 10, 50, 3, 80, "Escudo"));
+        armas.put("Escudo Pequeño", new Arma("Escudo Pequeño", 5, 30, 3, 40, "Escudo"));
+        armas.put("Escudo Reforzado", new Arma("Escudo Reforzado", 15, 60, 3, 120, "Escudo"));
+        armas.put("Escudo Mágico", new Arma("Escudo Mágico", 20, 70, 3, 60, "Escudo"));
 
         //Crear Clases
         clases.put("Clerigo", new Clase("Clerigo", false, false, true, true, 10, 15, 20, 25));
@@ -66,7 +66,7 @@ public class Main {
         try{
             System.out.println(personajes.get(0).getArmaEquipada().getNombre());
         } catch (NullPointerException e){
-            System.out.println("El personaje no tiene arma");
+            System.out.println("El personaje no tiene armas");
         } */
 
 
@@ -93,19 +93,17 @@ public class Main {
                 personajes.put(idPersonaje++, Creador.CrearPersonaje( razas, clases));
             } else if (accion == 2) {
                 for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
-                    System.out.println(entry.getValue().getNombre() + "  ");
-                    //Agregar clase y raza a el personaje, tambien vida y ataque
+                    try {
+                        System.out.println(entry.getValue().getNombre() + " - " + entry.getValue().getClase().getNombre() + " - " + entry.getValue().getRaza().getNombre() + " - " + entry.getValue().getArma().getNombre());
+
+                    } catch(NullPointerException e){
+                        System.out.println("Algunos personajes no tienen arma disponble, Equipale un arma");
+                    }
                 }
             } else if (accion == 3) {
-                System.out.println("Personajes Creados:");
-                for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
-                    System.out.println(entry.getValue().getNombre() + "  ");
-                }
-                accion = sc.nextInt();
-
-                System.out.println("Accion 3");
+                Creador.equiparArma(personajes, armas);
             } else if (accion == 4) {
-                System.out.println("Accion 4");
+                Combate.batalla(personajes.get(0), personajes.get(1));
             } else if (accion == 5){
                 accion = 5;
             } else {
