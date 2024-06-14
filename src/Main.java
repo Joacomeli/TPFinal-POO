@@ -1,10 +1,50 @@
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Main {
-    public static void main(String[] args) {
+    public static Personaje CrearPersonaje( Map<String, Raza> razas, Map<String, Clase> clases) {
+        Scanner sc = new Scanner(System.in);
 
+        String nombrePersonaje;
+        String clase = null;
+        String raza = null;
+
+        //Elegir Nombre
+        System.out.println("Crear Nuevo Personaje");
+        System.out.print("Ingrese Nombre del personaje: ");
+        nombrePersonaje = sc.nextLine();
+
+        int sumador = 0;
+        //Elegir Clase
+        System.out.println("Clases Disponibles (Ingrese nombre)");
+        for (Map.Entry<String, Clase> entry : clases.entrySet()) {
+            System.out.print(sumador + "-" + entry.getKey() + "  ");
+            sumador++;
+        }
+        System.out.println();
+        System.out.print("Ingrese Clase del personaje: ");
+        clase = sc.nextLine();
+
+        //Elegir Raza
+        System.out.println("Razas Disponibles (Ingrese nombre)");
+        sumador = 0;
+        for (Map.Entry<String, Raza> entry : razas.entrySet()) {
+            System.out.print(sumador + "-" + entry.getKey() + "  ");
+            sumador++;
+        }
+        System.out.println();
+        System.out.print("Ingrese Raza del personaje: ");
+        raza= sc.nextLine();
+
+        System.out.println(nombrePersonaje + " - " + clases.get(clase).getNombre() + " - " + razas.get(raza).getNombre());
+        //personajes.put(idPersonaje++, new Personaje("Pepito", razas.get("Orco"),clases.get("Asesino")));
+
+        return new Personaje(nombrePersonaje, razas.get(raza), clases.get(clase));
+    }
+
+    public static void main(String[] args) {
 
         Map<String,Clase> clases = new TreeMap<String,Clase>();
         Map<Integer,Personaje> personajes = new TreeMap<Integer,Personaje>();
@@ -59,82 +99,71 @@ public class Main {
         razas.put("Enano", new Raza("Enano", 14, 10, 18, 8, 10));
 
 
+        /*
         personajes.put(idPersonaje, new Personaje("Pepito", razas.get("Orco"),clases.get("Asesino")));
         idPersonaje++;
-        System.out.println(personajes.get(0).getNombre());
+        //System.out.println(personajes.get(0).getNombre());
 
-        personajes.get(0).agregarArma(cuerpoACuerpo.get("Espada Larga"));
-        personajes.get(0).agregarArma(escudos.get("Escudo Grande"));
-        personajes.get(0).agregarArma(distancia.get("Arco Largo"));
-        personajes.get(0).agregarArma(baculos.get("BastonDeFuego"));
-        //System.out.println(personajes.get(0).getArmasEquipadas());
-
-        System.out.println(CuerpoACuerpo.class);
-        System.out.println(cuerpoACuerpo.get("Espada Larga").getClass());
-
-
-        //personaje 1 le pega a personaje 2
-        //
-
-
-
-
-        int cantidadUsuarios = 0;
-        int cantidadPersonajes = 0;
-
-
-
-        /*//Crear Usuario
-        new Usuario("MatiCalles",idUsuario);
-        idUsuario++;
-        Usuario u1 = new Usuario("JoaqoMorelli",idUsuario);
-        idUsuario++;
-        Usuario u3 = new Usuario("RobertoBolanos",idUsuario);
-        idUsuario++;*/
+        personajes.get(0).agregarArma(baculos.get("Bastón Curativo"));
+        try{
+            System.out.println(personajes.get(0).getArmaEquipada().getNombre());
+        } catch (NullPointerException e){
+            System.out.println("El personaje no tiene arma");
+        } */
 
 
 
 
 
+        //Consola
+        System.out.println("Bienvenido al MMO");
+        int accion = 0;
+        while (accion != 5){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Ingrese una acción(un numero)");
+            System.out.println("1- Crear Personaje");
+            System.out.println("2- Listar Personajes");
+            System.out.println("3- Agregar armas a los personajes");
+            System.out.println("4- Iniciar combate entre 2 personajes");
+            System.out.println("5- Para terminar de jugar");
+            accion = sc.nextInt();
+
+
+            if(accion == 1){
+                personajes.put(idPersonaje++, CrearPersonaje( razas, clases));
+            } else if (accion == 2) {
+                for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
+                    System.out.println(entry.getValue().getNombre() + "  ");
+                }
+            } else if (accion == 3) {
+                System.out.println("Accion 3");
+            } else if (accion == 4) {
+                System.out.println("Accion 4");
+            } else if (accion == 5){
+                accion = 5;
+            } else {
+                accion = 0;
+            }
 
 
 
 
 
 
-        /*  Razas
-        Humano
-        Gnomo
-        Elfo
-        Enano
-        Orco
-        Zombie
-         */
 
-        /*  Clases
-        -Espadachin
-        -Barbaro
-        -Guerrero
-        -Mago
-        -Curandero
-        -Pistolero
-        -Arquero
-         */
 
-        /*  Armas
-        -Espada Larga
-        -Katana
-        -Espada Ropera
-        -Hacha
-        -Arco
-        -Ballesta
-        -Mosquete
-        -Trabuco
-        -Bastón de Curación
-        -Baston de Fuego
-        -Baston de Agua
-        -Baston de Tierra
-         */
+
+
+        }
+
+
+
+
+
+
+
+
+
 
 
 
