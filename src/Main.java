@@ -103,7 +103,9 @@ public class Main {
             } else if (accion == 3) {
                 Creador.equiparArma(personajes, armas);
             } else if (accion == 4) {
-                Combate.batalla(personajes.get(0), personajes.get(1));
+                Personaje p1 = Creador.elegirPersonaje(personajes);
+                Personaje p2 = Creador.elegirPersonaje(personajes);
+                Combate.batalla(p1, p2);
             } else if (accion == 5){
                 accion = 5;
             } else {

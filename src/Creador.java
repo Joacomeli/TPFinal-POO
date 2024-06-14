@@ -40,6 +40,27 @@ public class Creador {
         return new Personaje(nombrePersonaje, razas.get(raza), clases.get(clase));
     }
 
+    public static Personaje elegirPersonaje(Map<Integer, Personaje> personajes){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Personajes Disponibles (Ingrese nombre)");
+        for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
+            System.out.print( entry.getValue().getNombre() + "  ");
+        }
+        System.out.println();
+        System.out.print("Personaje Elegido: ");
+        String personajeSeleccionado= sc.nextLine();
+        System.out.println(personajeSeleccionado);
+
+        int num = 0;
+        for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
+            if(Objects.equals(personajeSeleccionado, entry.getValue().getNombre())){
+                num = entry.getKey();
+            }
+        }
+        return personajes.get(num);
+    }
+
+
     public static void equiparArma(Map<Integer, Personaje> personajes, Map<String, Arma> armas){
         Scanner sc = new Scanner(System.in);
 
