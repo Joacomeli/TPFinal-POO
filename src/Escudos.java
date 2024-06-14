@@ -1,4 +1,4 @@
-public class Escudos extends Arma{
+public class Escudos{
     private short multiplicadorDefensa;
 
     public short getMultiplicadorDefensa() {
@@ -12,9 +12,9 @@ public class Escudos extends Arma{
     public Escudos(short multiplicadorDefensa,  String nombre, int ptsAtaque, int ptsDefensa,
                    int peso) {
         this.multiplicadorDefensa = multiplicadorDefensa;
-        this.nombre = nombre;
-        this.ptsAtaque = ptsAtaque;
-        this.ptsDefensa = ptsDefensa;
-        this.peso = peso;
+//        this.nombre = nombre;
+//        this.ptsAtaque = ptsAtaque;
+//        this.ptsDefensa = ptsDefensa;
+//        this.peso = peso;
     }
 }

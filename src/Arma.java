@@ -1,11 +1,19 @@
-public abstract class Arma {
+public class Arma{
     private String nombre;
     private int ptsAtaque;
     private int ptsDefensa;
     private int alcance;
     private int peso;
-
     private String tipoArma;
+
+    public Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, String tipoArma){
+        this.nombre = nombre;
+        this.ptsAtaque = ptsAtaque;
+        this.ptsDefensa = ptsDefensa;
+        this.alcance = alcance;
+        this.peso = peso;
+        this.tipoArma = tipoArma;
+    }
 
     public int getPeso() {
         return peso;
@@ -36,7 +44,5 @@ public abstract class Arma {
     public void setPtsDefensa(int ptsDefensa) {
         this.ptsDefensa = ptsDefensa;
     }
-
-
 
 }

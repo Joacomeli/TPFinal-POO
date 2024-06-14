@@ -1,4 +1,4 @@
-public class Baculos extends Arma{
+public class Baculos{
     private short multiplicadorMagia;
     private short multiplicadorMana;
 
@@ -22,10 +22,10 @@ public class Baculos extends Arma{
                    int peso) {
         this.multiplicadorMagia = multiplicadorMagia;
         this.multiplicadorMana = multiplicadorMana;
-        this.nombre = nombre;
-        this.ptsAtaque = ptsAtaque;
-        this.ptsDefensa = ptsDefensa;
-        this.peso = peso;
+//        this.nombre = nombre;
+//        this.ptsAtaque = ptsAtaque;
+//        this.ptsDefensa = ptsDefensa;
+//        this.peso = peso;
     }
 
 }

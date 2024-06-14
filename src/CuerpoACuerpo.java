@@ -1,4 +1,4 @@
-public class CuerpoACuerpo extends Arma {
+public class CuerpoACuerpo{
     private short multiplicadorAtaque;
     private short alcance;
 
@@ -22,10 +22,10 @@ public class CuerpoACuerpo extends Arma {
                          int peso) {
         this.multiplicadorAtaque = multiplicadorAtaque;
         this.alcance = alcance;
-        this.nombre = nombre;
-        this.ptsAtaque = ptsAtaque;
-        this.ptsDefensa = ptsDefensa;
-        this.peso = peso;
+//        this.nombre = nombre;
+//        this.ptsAtaque = ptsAtaque;
+//        this.ptsDefensa = ptsDefensa;
+//        this.peso = peso;
     }
 
 }

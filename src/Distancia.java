@@ -1,4 +1,4 @@
-public class Distancia extends Arma{
+public class Distancia{
     private int distanciaEfectiva;
     private short velocidadRecarga;
 
@@ -22,10 +22,10 @@ public class Distancia extends Arma{
                      int peso) {
         this.distanciaEfectiva = distanciaEfectiva;
         this.velocidadRecarga = velocidadRecarga;
-        this.nombre = nombre;
-        this.ptsAtaque = ptsAtaque;
-        this.ptsDefensa = ptsDefensa;
-        this.peso = peso;
+//        this.nombre = nombre;
+//        this.ptsAtaque = ptsAtaque;
+//        this.ptsDefensa = ptsDefensa;
+//        this.peso = peso;
     }
 
 }
