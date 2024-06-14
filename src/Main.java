@@ -4,46 +4,6 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Main {
-    public static Personaje CrearPersonaje( Map<String, Raza> razas, Map<String, Clase> clases) {
-        Scanner sc = new Scanner(System.in);
-
-        String nombrePersonaje;
-        String clase = null;
-        String raza = null;
-
-        //Elegir Nombre
-        System.out.println("Crear Nuevo Personaje");
-        System.out.print("Ingrese Nombre del personaje: ");
-        nombrePersonaje = sc.nextLine();
-
-        int sumador = 0;
-        //Elegir Clase
-        System.out.println("Clases Disponibles (Ingrese nombre)");
-        for (Map.Entry<String, Clase> entry : clases.entrySet()) {
-            System.out.print(sumador + "-" + entry.getKey() + "  ");
-            sumador++;
-        }
-        System.out.println();
-        System.out.print("Ingrese Clase del personaje: ");
-        clase = sc.nextLine();
-
-        //Elegir Raza
-        System.out.println("Razas Disponibles (Ingrese nombre)");
-        sumador = 0;
-        for (Map.Entry<String, Raza> entry : razas.entrySet()) {
-            System.out.print(sumador + "-" + entry.getKey() + "  ");
-            sumador++;
-        }
-        System.out.println();
-        System.out.print("Ingrese Raza del personaje: ");
-        raza= sc.nextLine();
-
-        System.out.println(nombrePersonaje + " - " + clases.get(clase).getNombre() + " - " + razas.get(raza).getNombre());
-        //personajes.put(idPersonaje++, new Personaje("Pepito", razas.get("Orco"),clases.get("Asesino")));
-
-        return new Personaje(nombrePersonaje, razas.get(raza), clases.get(clase));
-    }
-
     public static void main(String[] args) {
 
         Map<String,Clase> clases = new TreeMap<String,Clase>();
@@ -115,6 +75,7 @@ public class Main {
 
 
 
+
         //Consola
         System.out.println("Bienvenido al MMO");
         int accion = 0;
@@ -123,19 +84,27 @@ public class Main {
             System.out.println("Ingrese una acción(un numero)");
             System.out.println("1- Crear Personaje");
             System.out.println("2- Listar Personajes");
-            System.out.println("3- Agregar armas a los personajes");
+            System.out.println("3- Equipar armas a los personajes");
             System.out.println("4- Iniciar combate entre 2 personajes");
             System.out.println("5- Para terminar de jugar");
             accion = sc.nextInt();
 
 
             if(accion == 1){
-                personajes.put(idPersonaje++, CrearPersonaje( razas, clases));
+                System.out.println("");
+                personajes.put(idPersonaje++, Creador.CrearPersonaje( razas, clases));
             } else if (accion == 2) {
                 for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
                     System.out.println(entry.getValue().getNombre() + "  ");
+                    //Agregar clase y raza a el personaje, tambien vida y ataque
                 }
             } else if (accion == 3) {
+                System.out.println("Personajes Creados:");
+                for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
+                    System.out.println(entry.getValue().getNombre() + "  ");
+                }
+                accion = sc.nextInt();
+
                 System.out.println("Accion 3");
             } else if (accion == 4) {
                 System.out.println("Accion 4");

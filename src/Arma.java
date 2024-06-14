@@ -1,8 +1,11 @@
 public abstract class Arma {
-    protected String nombre;
-    protected int ptsAtaque;
-    protected int ptsDefensa;
-    protected int peso;
+    private String nombre;
+    private int ptsAtaque;
+    private int ptsDefensa;
+    private int alcance;
+    private int peso;
+
+    private String tipoArma;
 
     public int getPeso() {
         return peso;
