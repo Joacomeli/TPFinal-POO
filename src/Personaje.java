@@ -51,17 +51,6 @@ public class Personaje {
         return nombre;
     }
 
-//    public void agregarArma(Arma arma) {
-//        if(clase.isUsaCuerpoACuerpo() && arma.getClass() == CuerpoACuerpo.class ||
-//                clase.isUsaDistancia() && arma.getClass() == Distancia.class ||
-//                clase.isUsaEscudos() && arma.getClass() == Escudos.class ||
-//                clase.isUsaBaculos() && arma.getClass() == Baculos.class){
-//            this.arma=arma;
-//        } else {
-//            System.out.println("Arma no disponible para esa clase");
-//        }
-//    }
-
     public void sacarVida (int dano){
 
     }

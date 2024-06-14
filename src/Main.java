@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -103,13 +104,17 @@ public class Main {
             } else if (accion == 3) {
                 Creador.equiparArma(personajes, armas);
             } else if (accion == 4) {
-                Personaje p1 = Creador.elegirPersonaje(personajes);
-                Personaje p2 = Creador.elegirPersonaje(personajes);
-                Combate.batalla(p1, p2);
+                Personaje combatiente1;
+                Personaje combatiente2;
+                System.out.println("Selecciones Primer Combatiente");
+                combatiente1=Creador.elegirPersonaje(personajes);
+                System.out.println("Selecciones Segundo Combatiente");
+                combatiente2=Creador.elegirPersonaje(personajes);
+                Combate.batalla(combatiente1, combatiente2);
             } else if (accion == 5){
-                accion = 5;
+                continue;
             } else {
-                accion = 0;
+                continue;
             }
 
 

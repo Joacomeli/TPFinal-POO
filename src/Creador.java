@@ -1,6 +1,7 @@
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Creador {
 

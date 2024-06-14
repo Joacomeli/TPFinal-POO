@@ -1,4 +1,4 @@
-public class Arma{
+public class Arma implements TDAArma{
     private String nombre;
     private int ptsAtaque;
     private int ptsDefensa;
