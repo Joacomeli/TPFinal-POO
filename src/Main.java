@@ -172,9 +172,16 @@ public class Main {
             } else if (intInput == 6){
                 clases.forEach((key, Clase) -> System.out.println(Clase.getNombre()+", "+ Clase.arsenal()));
 
+            } else if (intInput == 7){
+                armas.forEach((key, Arma) -> System.out.println(Arma.getNombre()+", Ataque: "+
+                        Arma.getPtsAtaque()+", Defensa: "+
+                        Arma.getPtsDefensa()+", Peso: "+
+                        Arma.getPeso()+", Alcance: "+
+                        Arma.getAlcance()));
+
             }
 
-            else if (intInput == 7){
+            else if (intInput == 8){
                 continue;
             } else{
                 continue;

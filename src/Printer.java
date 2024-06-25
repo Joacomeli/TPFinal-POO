@@ -31,7 +31,7 @@ public class Printer {
 
     public static int seleccionMenu(){
         Scanner sc = new Scanner(System.in);
-        int valorMaximo = 8;
+        int valorMaximo = 9;
         String texto = ("Ingrese una acción(un numero)"+"\n"+
         "1 - Crear Personaje"+"\n"+
         "2 - Listar Personajes"+"\n"+
@@ -39,7 +39,8 @@ public class Printer {
         "4 - Iniciar combate entre 2 personajes"+"\n"+
         "5 - Listar Razas"+"\n"+
         "6 - Listar Clases"+"\n"+
-        "7 - Para terminar de jugar");
+        "7 - Listar Armas"+"\n"+
+        "8 - Para terminar de jugar");
         Scanner scanner = new Scanner(System.in);
         int number = 0;
         boolean validInput = false;
