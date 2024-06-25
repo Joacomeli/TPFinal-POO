@@ -18,19 +18,33 @@ public class Personaje {
         this.vida = vida;
     }
 
-    public Personaje(String nombre, Raza raza, Clase clase) {
+    public Personaje(String nombre, Raza raza, Clase clase, Arma arma) {
         this.nombre = nombre;
         this.nivel = 0;
         this.raza = raza;
         this.clase = clase;
         this.vida=raza.getConstitucion()*10;
+        this.arma=arma;
+
     }
-    public void equiparArma(Arma arma){
+    public boolean validarArma(Arma arma){
+        if (arma.isEsCuerpoACuerpo() && clase.isUsaCuerpoACuerpo() ||
+        arma.isEsDistancia() && clase.isUsaDistancia() ||
+        arma.isEsBaculos() && clase.isUsaBaculos() ||
+        arma.isEsEscudos() && clase.isUsaEscudos()){
+            return true;
+        }
+        else {return false;}
+    }
+
+    public void setArma(Arma arma) {
         this.arma = arma;
     }
-    public Arma getArma(){
+
+    public Arma getArma() {
         return arma;
     }
+
     public int getNivel() {
         return nivel;
     }
@@ -54,7 +68,9 @@ public class Personaje {
     public void sacarVida (int dano){
 
     }
-    //Agregar si ya tiene arma
+    public void restaurarVida (){
+        this.vida=raza.getConstitucion()*10;
+    }
 
 
 

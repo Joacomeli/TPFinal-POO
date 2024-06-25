@@ -95,4 +95,22 @@ public class Clase {
         this.plusInteligencia = plusInteligencia;
         this.plusConstitucion = plusConstitucion;
     }
+
+    public String arsenal(){
+        String texto = "Usa: ";
+        if (usaCuerpoACuerpo){
+            texto = texto+"Cuerpo a Cuerpo - ";
+        }
+        if (usaDistancia){
+            texto = texto+"Distancia - ";
+        }
+        if (usaBaculos){
+            texto = texto+"Baculos - ";
+        }
+        if (usaEscudos){
+            texto = texto+"Escudos - ";
+        }
+        texto=texto.substring(0, texto.length()-3);
+        return  texto;
+    }
 }
