@@ -92,6 +92,8 @@ public class Creador {
         }
         System.out.println("numero" + num);
 
+        /*
+
         if(personajes.get(num).getClase().isUsaCuerpoACuerpo() && Objects.equals(armas.get(armaSeleccionada).getTipoArma(), "Cuerpo a Cuerpo") ||
                 personajes.get(num).getClase().isUsaDistancia() && Objects.equals(armas.get(armaSeleccionada).getTipoArma(), "Distancia") ||
                 personajes.get(num).getClase().isUsaBaculos() && Objects.equals(armas.get(armaSeleccionada).getTipoArma(), "Baculo") ||
@@ -102,6 +104,8 @@ public class Creador {
         } else {
             System.out.println("Arma no disponible para esa clase");
         }
+
+         */
 
 
 

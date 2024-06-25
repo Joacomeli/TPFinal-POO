@@ -25,7 +25,7 @@ public class Personaje {
         this.clase = clase;
         this.vida=raza.getConstitucion()*10;
     }
-    public void setArma(Arma arma){
+    public void equiparArma(Arma arma){
         this.arma = arma;
     }
     public Arma getArma(){
