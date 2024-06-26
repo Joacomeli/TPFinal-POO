@@ -144,12 +144,16 @@ public class Main {
                         Personaje.getClase().getNombre()+", Arma: "+
                         Personaje.getArma().getNombre())));
 
+                //Aca podemos agregar que se muestre la clase del personaje y los tipos de arma que usa
+
                 combatiente1 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del primer combatiente"));
 
                 personajes.forEach((key, Personaje) -> System.out.println(key+" - "+( Personaje.getNombre()+", "+
                         Personaje.getRaza().getNombre()+", "+
                         Personaje.getClase().getNombre()+", Arma: "+
                         Personaje.getArma().getNombre())));
+
+                //Aca podemos agregar a que clase pertenece cada arma
 
                 combatiente2 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del segundo combatiente"));
 
