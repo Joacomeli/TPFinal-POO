@@ -87,6 +87,10 @@ public class Printer {
         System.out.println(personaje.getNombre()+ " A Ganado el duelo!");
     }
 
+    public static void elegirOtroPersonaje(Personaje personaje){
+        System.out.println("El personaje " + personaje.getNombre()+ " ya esta elegido");
+        System.out.println("Elige otro personaje");
+    }
 
 
 

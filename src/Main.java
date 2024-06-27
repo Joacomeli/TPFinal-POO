@@ -148,14 +148,24 @@ public class Main {
 
                 combatiente1 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del primer combatiente"));
 
-                personajes.forEach((key, Personaje) -> System.out.println(key+" - "+( Personaje.getNombre()+", "+
-                        Personaje.getRaza().getNombre()+", "+
-                        Personaje.getClase().getNombre()+", Arma: "+
-                        Personaje.getArma().getNombre())));
+                combatiente2 = combatiente1;
 
-                //Aca podemos agregar a que clase pertenece cada arma
+                boolean combatientesIguales = true;
+                while(combatientesIguales){
+                    personajes.forEach((key, Personaje) -> System.out.println(key+" - "+( Personaje.getNombre()+", "+
+                            Personaje.getRaza().getNombre()+", "+
+                            Personaje.getClase().getNombre()+", Arma: "+
+                            Personaje.getArma().getNombre())));
 
-                combatiente2 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del segundo combatiente"));
+                    //Aca podemos agregar a que clase pertenece cada arma
+
+                    combatiente2 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del segundo combatiente"));
+                    if(combatiente1 != combatiente2){
+                        combatientesIguales = false;
+                    } else {
+                        Printer.elegirOtroPersonaje(combatiente2);
+                    }
+                }
 
                 Combate.batalla(combatiente1, combatiente2);
 
