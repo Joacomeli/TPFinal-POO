@@ -1,16 +1,19 @@
+import java.util.Collection;
+
 public class Clase {
     private String nombre;
-
-    private boolean usaCuerpoACuerpo;
-    private boolean usaDistancia;
-    private boolean usaBaculos;
-    private boolean usaEscudos;
-
+    private Collection<TipoArma> armasUsadas;
     private int plusFuerza;
     private int plusDestreza;
     private int plusInteligencia;
     private int plusConstitucion;
 
+    public void setTipoArma(TipoArma tipoArma){
+        armasUsadas.add(tipoArma);
+    }
+    public Collection<TipoArma> getArmasUsadas(){
+        return armasUsadas;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -83,13 +86,8 @@ public class Clase {
         this.plusConstitucion = plusConstitucion;
     }
 
-    public Clase(String nombre, boolean usaCuerpoACuerpo, boolean usaDistancia, boolean usaBaculos, boolean usaEscudos,
-                 int plusFuerza, int plusDestreza, int plusInteligencia, int plusConstitucion) {
+    public Clase(String nombre, int plusFuerza, int plusDestreza, int plusInteligencia, int plusConstitucion) {
         this.nombre = nombre;
-        this.usaCuerpoACuerpo = usaCuerpoACuerpo;
-        this.usaDistancia = usaDistancia;
-        this.usaBaculos = usaBaculos;
-        this.usaEscudos = usaEscudos;
         this.plusFuerza = plusFuerza;
         this.plusDestreza = plusDestreza;
         this.plusInteligencia = plusInteligencia;

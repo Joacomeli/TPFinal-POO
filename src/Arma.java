@@ -6,21 +6,23 @@ public class Arma {
     private int alcance;
     private int peso;
 
-    private boolean esCuerpoACuerpo;
-    private boolean esDistancia;
-    private boolean esBaculos;
-    private boolean esEscudos;
+    private TipoArma tipoArma;
 
-    public Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, boolean esCuerpoACuerpo, boolean esDistancia, boolean esBaculos, boolean esEscudos) {
+    public Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, TipoArma tipoArma) {
         this.nombre = nombre;
         this.ptsAtaque = ptsAtaque;
         this.ptsDefensa = ptsDefensa;
         this.alcance = alcance;
         this.peso = peso;
-        this.esCuerpoACuerpo = esCuerpoACuerpo;
-        this.esDistancia = esDistancia;
-        this.esBaculos = esBaculos;
-        this.esEscudos = esEscudos;
+        this.tipoArma = tipoArma;
+    }
+
+    public TipoArma getTipoArma() {
+        return tipoArma;
+    }
+
+    public void setTipoArma(TipoArma tipoArma) {
+        this.tipoArma = tipoArma;
     }
 
     public int getAlcance() {

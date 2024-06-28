@@ -35,6 +35,9 @@ public class Personaje {
             return true;
         }
         else {return false;}
+
+
+
     }
 
     public void setArma(Arma arma) {
