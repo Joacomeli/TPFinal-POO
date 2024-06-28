@@ -28,16 +28,9 @@ public class Personaje {
 
     }
     public boolean validarArma(Arma arma){
-        if (arma.isEsCuerpoACuerpo() && clase.isUsaCuerpoACuerpo() ||
-        arma.isEsDistancia() && clase.isUsaDistancia() ||
-        arma.isEsBaculos() && clase.isUsaBaculos() ||
-        arma.isEsEscudos() && clase.isUsaEscudos()){
+        if(clase.getArmasUsadas().contains(arma.getTipoArma())) {
             return true;
-        }
-        else {return false;}
-
-
-
+        } else {return false;}
     }
 
     public void setArma(Arma arma) {

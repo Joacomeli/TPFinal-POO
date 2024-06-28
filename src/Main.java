@@ -24,10 +24,10 @@ public class Main {
 
 
         //Crear TipoArma tiposArmas
-        tiposArmas.put(idArma++, new TipoArma("CuerpoACuerpo"));
-        tiposArmas.put(idArma++, new TipoArma("Distancia"));
-        tiposArmas.put(idArma++, new TipoArma("Baculo"));
-        tiposArmas.put(idArma++, new TipoArma("Escudo"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("CuerpoACuerpo"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("Distancia"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("Baculo"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("Escudo"));
         //Crear Armas CuerpoACuerpo
         armas.put(idArma++, new Arma("Puños", 1, 1, 0, 1,tiposArmas.get(1)));
         armas.put(idArma++, new Arma("Espada Larga", 50, 20, 10, 25, tiposArmas.get(1)));
@@ -52,21 +52,21 @@ public class Main {
 
         //Crear Clases
         clases.put(idClase++, new Clase("Clerigo", 10, 15, 20, 25));
-        clases.get(idClase).setTipoArma(tiposArmas.get(3));
-        clases.get(idClase).setTipoArma(tiposArmas.get(4));
+        clases.get(1).setTipoArma(tiposArmas.get(3));
+        clases.get(1).setTipoArma(tiposArmas.get(4));
         clases.put(idClase++, new Clase("Mago", 5, 10, 30, 10));
-        clases.get(idClase).setTipoArma(tiposArmas.get(3));
+        clases.get(2).setTipoArma(tiposArmas.get(3));
         clases.put(idClase++, new Clase("Guerrero", 25, 20, 5, 30));
-        clases.get(idClase).setTipoArma(tiposArmas.get(1));
-        clases.get(idClase).setTipoArma(tiposArmas.get(4));
+        clases.get(3).setTipoArma(tiposArmas.get(1));
+        clases.get(3).setTipoArma(tiposArmas.get(4));
         clases.put(idClase++, new Clase("Paladin", 20, 15, 10, 25));
-        clases.get(idClase).setTipoArma(tiposArmas.get(1));
-        clases.get(idClase).setTipoArma(tiposArmas.get(4));
+        clases.get(4).setTipoArma(tiposArmas.get(1));
+        clases.get(4).setTipoArma(tiposArmas.get(4));
         clases.put(idClase++, new Clase("Arquero", 15, 25, 10, 20));
-        clases.get(idClase).setTipoArma(tiposArmas.get(2));
+        clases.get(5).setTipoArma(tiposArmas.get(2));
         clases.put(idClase++, new Clase("Asesino", 20, 30, 5, 15));
-        clases.get(idClase).setTipoArma(tiposArmas.get(1));
-        clases.get(idClase).setTipoArma(tiposArmas.get(2));
+        clases.get(6).setTipoArma(tiposArmas.get(1));
+        clases.get(6).setTipoArma(tiposArmas.get(2));
 
         //Crear Razas
         razas.put(idRaza++, new Raza("Orco", 18, 10, 16, 8, 6));

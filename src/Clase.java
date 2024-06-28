@@ -1,37 +1,22 @@
 import java.util.Collection;
+import java.util.HashSet;
 
 public class Clase {
     private String nombre;
-    private Collection<TipoArma> armasUsadas;
+    private Collection<TipoArma> tipoArmasUsables = new HashSet<TipoArma>();
     private int plusFuerza;
     private int plusDestreza;
     private int plusInteligencia;
     private int plusConstitucion;
 
     public void setTipoArma(TipoArma tipoArma){
-        armasUsadas.add(tipoArma);
+        tipoArmasUsables.add(tipoArma);
     }
     public Collection<TipoArma> getArmasUsadas(){
-        return armasUsadas;
+        return tipoArmasUsables;
     }
     public String getNombre() {
         return nombre;
-    }
-
-    public boolean isUsaCuerpoACuerpo() {
-        return usaCuerpoACuerpo;
-    }
-
-    public boolean isUsaDistancia() {
-        return usaDistancia;
-    }
-
-    public boolean isUsaBaculos() {
-        return usaBaculos;
-    }
-
-    public boolean isUsaEscudos() {
-        return usaEscudos;
     }
 
     public int getPlusFuerza() {
@@ -52,22 +37,6 @@ public class Clase {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public void setUsaCuerpoACuerpo(boolean usaCuerpoACuerpo) {
-        this.usaCuerpoACuerpo = usaCuerpoACuerpo;
-    }
-
-    public void setUsaDistancia(boolean usaDistancia) {
-        this.usaDistancia = usaDistancia;
-    }
-
-    public void setUsaBaculos(boolean usaBaculos) {
-        this.usaBaculos = usaBaculos;
-    }
-
-    public void setUsaEscudos(boolean usaEscudos) {
-        this.usaEscudos = usaEscudos;
     }
 
     public void setPlusFuerza(int plusFuerza) {
@@ -95,20 +64,12 @@ public class Clase {
     }
 
     public String arsenal(){
-        String texto = "Usa: ";
-        if (usaCuerpoACuerpo){
-            texto = texto+"Cuerpo a Cuerpo - ";
+        StringBuilder texto = new StringBuilder("Usa: ");
+        for(TipoArma tipoArma : tipoArmasUsables){
+            texto.append(tipoArma.getNombre()).append(" - ");
         }
-        if (usaDistancia){
-            texto = texto+"Distancia - ";
-        }
-        if (usaBaculos){
-            texto = texto+"Baculos - ";
-        }
-        if (usaEscudos){
-            texto = texto+"Escudos - ";
-        }
-        texto=texto.substring(0, texto.length()-3);
-        return  texto;
+
+        texto = new StringBuilder(texto.substring(0, texto.length() - 3));
+        return texto.toString();
     }
 }
