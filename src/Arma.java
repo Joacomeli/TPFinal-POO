@@ -1,12 +1,12 @@
-public class Arma implements TDAArma{
+public class Arma {
     private String nombre;
     private int ptsAtaque;
     private int ptsDefensa;
     private int alcance;
     private int peso;
-    private String tipoArma;
+    private TipoArma tipoArma;
 
-    public Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, String tipoArma){
+    public Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, TipoArma tipoArma) {
         this.nombre = nombre;
         this.ptsAtaque = ptsAtaque;
         this.ptsDefensa = ptsDefensa;
@@ -14,6 +14,23 @@ public class Arma implements TDAArma{
         this.peso = peso;
         this.tipoArma = tipoArma;
     }
+
+    public TipoArma getTipoArma() {
+        return tipoArma;
+    }
+
+    public void setTipoArma(TipoArma tipoArma) {
+        this.tipoArma = tipoArma;
+    }
+
+    public int getAlcance() {
+        return alcance;
+    }
+
+    public void setAlcance(int alcance) {
+        this.alcance = alcance;
+    }
+
 
     public int getPeso() {
         return peso;
@@ -44,5 +61,6 @@ public class Arma implements TDAArma{
     public void setPtsDefensa(int ptsDefensa) {
         this.ptsDefensa = ptsDefensa;
     }
-    public String getTipoArma(){return tipoArma;}
+
+
 }

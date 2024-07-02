@@ -1,3 +1,4 @@
+import java.beans.PersistenceDelegate;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
@@ -7,113 +8,214 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
 
-        Map<String,Clase> clases = new TreeMap<String,Clase>();
+        Map<Integer,Clase> clases = new TreeMap<Integer,Clase>();
         Map<Integer,Personaje> personajes = new TreeMap<Integer,Personaje>();
-        Map<String,Raza> razas = new TreeMap<String,Raza>();
-        Map<String,Arma> armas = new TreeMap<String,Arma>();
-
-        int idUsuario=0;
-        int idPersonaje=0;
+        Map<Integer,Raza> razas = new TreeMap<Integer,Raza>();
+        Map<Integer,Arma> armas = new TreeMap<Integer,Arma>();
+        Map<Integer,TipoArma> tiposArmas= new TreeMap<Integer,TipoArma>();
 
 
+        int idUsuario=1;
+        int idPersonaje=1;
+        int idArma=1;
+        int idRaza=1;
+        int idClase=1;
+        int idTiposArmas = 1;
+
+
+        //Crear TipoArma tiposArmas
+        tiposArmas.put(idTiposArmas++, new TipoArma("CuerpoACuerpo"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("Distancia"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("Baculo"));
+        tiposArmas.put(idTiposArmas++, new TipoArma("Escudo"));
         //Crear Armas CuerpoACuerpo
-        //Arma(String nombre, int ptsAtaque, int ptsDefensa, int alcance, int peso, String tipoArma)
-        armas.put("Espada Larga", new Arma("Espada Larga", 50, 20, 10, 25, "Cuerpo a Cuerpo"));
-        armas.put("Mazo Pesado", new Arma("Mazo Pesado", 60, 30, 5, 50, "Cuerpo a Cuerpo"));
-        armas.put("Hacha Doble", new Arma("Hacha Doble", 55, 25, 5, 30, "Cuerpo a Cuerpo"));
-        armas.put("Daga Ligera", new Arma("Daga Ligera", 30, 10, 3, 15, "Cuerpo a Cuerpo"));
-
+        armas.put(idArma++, new Arma("Puños", 1, 1, 0, 1,tiposArmas.get(1)));
+        armas.put(idArma++, new Arma("Espada Larga", 50, 20, 10, 25, tiposArmas.get(1)));
+        armas.put(idArma++, new Arma("Mazo Pesado", 60, 30, 5, 50, tiposArmas.get(1)));
+        armas.put(idArma++, new Arma("Hacha Doble", 55, 25, 5, 30, tiposArmas.get(1)));
+        armas.put(idArma++, new Arma("Daga Ligera", 30, 10, 3, 15, tiposArmas.get(1)));
         //Crear Arnas Distancia
-        armas.put("Arco Largo", new Arma("Arco Largo", 40, 10, 50, 25, "Distancia"));
-        armas.put("Ballesta", new Arma("Ballesta", 60, 20, 50, 30, "Distancia"));
-        armas.put("Rifle", new Arma("Rifle", 80, 25, 80, 30, "Distancia"));
-        armas.put("Pistola", new Arma("Pistola", 30, 15, 80, 15, "Distancia"));
-
+        armas.put(idArma++, new Arma("Arco Largo", 40, 10, 50, 25,tiposArmas.get(2)));
+        armas.put(idArma++, new Arma("Ballesta", 60, 20, 50, 30,tiposArmas.get(2)));
+        armas.put(idArma++, new Arma("Rifle", 80, 25, 80, 30,tiposArmas.get(2)));
+        armas.put(idArma++, new Arma("Pistola", 30, 15, 80, 15,tiposArmas.get(2)));
         //Crear Armas Baculos
-        armas.put("Bastón de Fuego", new Arma("Bastón de Fuego", 70, 10, 80, 30, "Baculo"));
-        armas.put("Varita de Hielo", new Arma("Varita de Hielo", 60, 15, 80, 30, "Baculo"));
-        armas.put("Cetro de Trueno", new Arma("Cetro de Trueno", 80, 20, 80, 30, "Baculo"));
-        armas.put("Bastón Curativo", new Arma("Bastón Curativo", 50, 25, 80, 30, "Baculo"));
-
+        armas.put(idArma++, new Arma("Bastón de Fuego", 70, 10, 80, 30,tiposArmas.get(3)));
+        armas.put(idArma++, new Arma("Varita de Hielo", 60, 15, 80, 30,tiposArmas.get(3)));
+        armas.put(idArma++, new Arma("Cetro de Trueno", 80, 20, 80, 30,tiposArmas.get(3)));
+        armas.put(idArma++, new Arma("Bastón Curativo", 50, 25, 80, 30,tiposArmas.get(3)));
         //Crear Armas Escudos
-        armas.put("Escudo Grande", new Arma("Escudo Grande", 10, 50, 3, 80, "Escudo"));
-        armas.put("Escudo Pequeño", new Arma("Escudo Pequeño", 5, 30, 3, 40, "Escudo"));
-        armas.put("Escudo Reforzado", new Arma("Escudo Reforzado", 15, 60, 3, 120, "Escudo"));
-        armas.put("Escudo Mágico", new Arma("Escudo Mágico", 20, 70, 3, 60, "Escudo"));
+        armas.put(idArma++, new Arma("Escudo Grande", 10, 50, 3, 80,tiposArmas.get(4)));
+        armas.put(idArma++, new Arma("Escudo Pequeño", 5, 30, 3, 40,tiposArmas.get(4)));
+        armas.put(idArma++, new Arma("Escudo Reforzado", 15, 60, 3, 120,tiposArmas.get(4)));
+        armas.put(idArma++, new Arma("Escudo Mágico", 20, 70, 3, 60,tiposArmas.get(4)));
 
         //Crear Clases
-        clases.put("Clerigo", new Clase("Clerigo", false, false, true, true, 10, 15, 20, 25));
-        clases.put("Mago", new Clase("Mago", false, false, true, false, 5, 10, 30, 10));
-        clases.put("Guerrero", new Clase("Guerrero", true, false, false, true, 25, 20, 5, 30));
-        clases.put("Paladin", new Clase("Paladin", true, false, false, true, 20, 15, 10, 25));
-        clases.put("Arquero", new Clase("Arquero", false, true, false, false, 15, 25, 10, 20));
-        clases.put("Asesino", new Clase("Asesino", true, true, false, false, 20, 30, 5, 15));
+        clases.put(idClase++, new Clase("Clerigo", 10, 15, 20, 25));
+        clases.get(1).setTipoArma(tiposArmas.get(3));
+        clases.get(1).setTipoArma(tiposArmas.get(4));
+        clases.put(idClase++, new Clase("Mago", 5, 10, 30, 10));
+        clases.get(2).setTipoArma(tiposArmas.get(3));
+        clases.put(idClase++, new Clase("Guerrero", 25, 20, 5, 30));
+        clases.get(3).setTipoArma(tiposArmas.get(1));
+        clases.get(3).setTipoArma(tiposArmas.get(4));
+        clases.put(idClase++, new Clase("Paladin", 20, 15, 10, 25));
+        clases.get(4).setTipoArma(tiposArmas.get(1));
+        clases.get(4).setTipoArma(tiposArmas.get(4));
+        clases.put(idClase++, new Clase("Arquero", 15, 25, 10, 20));
+        clases.get(5).setTipoArma(tiposArmas.get(2));
+        clases.put(idClase++, new Clase("Asesino", 20, 30, 5, 15));
+        clases.get(6).setTipoArma(tiposArmas.get(1));
+        clases.get(6).setTipoArma(tiposArmas.get(2));
 
         //Crear Razas
-        razas.put("Orco", new Raza("Orco", 18, 10, 16, 8, 6));
-        razas.put("Gnomo", new Raza("Gnomo", 8, 14, 10, 16, 12));
-        razas.put("Humano", new Raza("Humano", 10, 10, 10, 10, 10));
-        razas.put("Elfo", new Raza("Elfo", 8, 16, 10, 14, 12));
-        razas.put("Elfo Drow", new Raza("Elfo Drow", 8, 18, 8, 16, 14));
-        razas.put("Enano", new Raza("Enano", 14, 10, 18, 8, 10));
+        razas.put(idRaza++, new Raza("Orco", 18, 10, 16, 8, 6));
+        razas.put(idRaza++, new Raza("Gnomo", 8, 14, 10, 16, 12));
+        razas.put(idRaza++, new Raza("Humano", 10, 10, 10, 10, 10));
+        razas.put(idRaza++, new Raza("Elfo", 8, 16, 10, 14, 12));
+        razas.put(idRaza++, new Raza("Elfo Drow", 8, 18, 8, 16, 14));
+        razas.put(idRaza++, new Raza("Enano", 14, 10, 18, 8, 10));
 
 
-        /*
-        personajes.put(idPersonaje, new Personaje("Pepito", razas.get("Orco"),clases.get("Asesino")));
-        idPersonaje++;
-        //System.out.println(personajes.get(0).getNombre());
-
-        personajes.get(0).agregarArma(baculos.get("Bastón Curativo"));
-        try{
-            System.out.println(personajes.get(0).getArmaEquipada().getNombre());
-        } catch (NullPointerException e){
-            System.out.println("El personaje no tiene armas");
-        } */
-
-
+        personajes.put(idPersonaje++, new Personaje("Matias",razas.get(1), clases.get(1),armas.get(1)));
+        personajes.put(idPersonaje++, new Personaje("Matisa2",razas.get(2), clases.get(2), armas.get(1)));
+        personajes.put(idPersonaje++, new Personaje("Matias3",razas.get(3), clases.get(4), armas.get(1)));
+        personajes.put(idPersonaje++, new Personaje("Matias4",razas.get(4), clases.get(3), armas.get(1)));
+        personajes.put(idPersonaje++, new Personaje("Matias5",razas.get(5), clases.get(2), armas.get(1)));
 
 
 
 
         //Consola
         System.out.println("Bienvenido al MMO");
-        int accion = 0;
-        while (accion != 5){
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Ingrese una acción(un numero)");
-            System.out.println("1- Crear Personaje");
-            System.out.println("2- Listar Personajes");
-            System.out.println("3- Equipar armas a los personajes");
-            System.out.println("4- Iniciar combate entre 2 personajes");
-            System.out.println("5- Para terminar de jugar");
-            accion = sc.nextInt();
+        int intInput = 0;
+        while (intInput != 7){
 
+            intInput=Printer.seleccionMenu();
 
-            if(accion == 1){
-                System.out.println("");
-                personajes.put(idPersonaje++, Creador.CrearPersonaje( razas, clases));
-            } else if (accion == 2) {
-                for (Map.Entry<Integer, Personaje> entry : personajes.entrySet()) {
-                    try {
-                        System.out.println(entry.getValue().getNombre() + " - " + entry.getValue().getClase().getNombre() + " - " + entry.getValue().getRaza().getNombre() + " - " + entry.getValue().getArma().getNombre());
+            if(intInput == 1){
 
-                    } catch(NullPointerException e){
-                        System.out.println("Algunos personajes no tienen arma disponble, Equipale un arma");
+                //Creacion de Personaje
+
+                Scanner scanner = new Scanner(System.in);
+                int numeroRaza;
+                int numeroClase;
+                String nombrePersonaje;
+
+                System.out.println("Elija el nombre de su personaje");
+                nombrePersonaje = scanner.next();
+
+                razas.forEach((key, Raza) -> System.out.println(key+" - "+Raza.getNombre()));
+                numeroRaza = Printer.validarInput(idRaza, "Ingrese el Numero de la raza que desea elegir");
+
+                clases.forEach((key, Clase) -> System.out.println(key+" - "+Clase.getNombre()));
+                numeroClase = Printer.validarInput(idClase, "Ingrese el Numero de la clase que desea elegir");
+
+                personajes.put(idPersonaje++, new Personaje(nombrePersonaje,razas.get(numeroRaza), clases.get(numeroClase), armas.get(1)));
+
+                // Siempre se equipa por defecto los puños
+
+            } else if (intInput == 2) {
+
+                //Listar Personajes
+
+                personajes.forEach((key, Personaje) -> System.out.println(( Personaje.getNombre()+", "+
+                        Personaje.getRaza().getNombre()+", "+
+                        Personaje.getClase().getNombre()+", Arma: "+
+                        Personaje.getArma().getNombre())));
+
+            } else if (intInput == 3) {
+
+                //Equipar arma
+
+                int numeroPersonaje;
+                int numeroArma = 0;
+                boolean armaValida = false;
+
+                personajes.forEach((key, Personaje) -> System.out.println(key+" - "+ Personaje.getNombre()));
+                numeroPersonaje = Printer.validarInput(idPersonaje, "Ingrese el Numero del Personaje que desea equipar con un arma");
+
+                armas.forEach((key, Arma) -> System.out.println(key+" - "+Arma.getNombre()));
+
+                while (!armaValida){
+                    numeroArma = Printer.validarInput(idArma, "Ingrese el Numero del Arma que desea equiparle");
+                    armaValida = personajes.get(numeroPersonaje).validarArma(armas.get(numeroArma));
+                    if (!armaValida){
+                        System.out.println("Arma invalida para la clase del Personaje");
+                        continue;
+                    }else{
+                        continue;
                     }
                 }
-            } else if (accion == 3) {
-                Creador.equiparArma(personajes, armas);
-            } else if (accion == 4) {
+
+                personajes.get(numeroPersonaje).setArma(armas.get(numeroArma));
+
+            } else if (intInput == 4) {
+
+                //Iniciar Combate
+
                 Personaje combatiente1;
                 Personaje combatiente2;
-                System.out.println("Selecciones Primer Combatiente");
-                combatiente1=Creador.elegirPersonaje(personajes);
-                System.out.println("Selecciones Segundo Combatiente");
-                combatiente2=Creador.elegirPersonaje(personajes);
+
+                personajes.forEach((key, Personaje) -> System.out.println(key+" - "+( Personaje.getNombre()+", "+
+                        Personaje.getRaza().getNombre()+", "+
+                        Personaje.getClase().getNombre()+", Arma: "+
+                        Personaje.getArma().getNombre())));
+
+                //Aca podemos agregar que se muestre la clase del personaje y los tipos de arma que usa
+
+                combatiente1 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del primer combatiente"));
+
+                combatiente2 = combatiente1;
+
+                boolean combatientesIguales = true;
+                while(combatientesIguales){
+                    personajes.forEach((key, Personaje) -> System.out.println(key+" - "+( Personaje.getNombre()+", "+
+                            Personaje.getRaza().getNombre()+", "+
+                            Personaje.getClase().getNombre()+", Arma: "+
+                            Personaje.getArma().getNombre())));
+
+                    //Aca podemos agregar a que clase pertenece cada arma
+
+                    combatiente2 = personajes.get(Printer.validarInput(idPersonaje, "Ingrese el Numero del segundo combatiente"));
+                    if(combatiente1 != combatiente2){
+                        combatientesIguales = false;
+                    } else {
+                        Printer.elegirOtroPersonaje(combatiente2);
+                    }
+                }
+
                 Combate.batalla(combatiente1, combatiente2);
-            } else if (accion == 5){
+
+            } else if (intInput == 5){
+
+                // Listar Razas
+
+                razas.forEach((key, Raza) -> System.out.println(
+                        Raza.getNombre()+", Fuerza: "
+                        +Raza.getFuerza()+", Destreza: "
+                        +Raza.getDestreza()+", Constitucion: "
+                        +Raza.getConstitucion()+", Inteligencia: "
+                        +Raza.getInteligencia()+", Carisma: "
+                        +Raza.getCarisma()
+                ));
+
+
+            } else if (intInput == 6){
+                clases.forEach((key, Clase) -> System.out.println(Clase.getNombre()+", "+ Clase.arsenal()));
+
+            } else if (intInput == 7){
+                armas.forEach((key, Arma) -> System.out.println(Arma.getNombre()+", Ataque: "+
+                        Arma.getPtsAtaque()+", Defensa: "+
+                        Arma.getPtsDefensa()+", Peso: "+
+                        Arma.getPeso()+", Alcance: "+
+                        Arma.getAlcance()));
+
+            }
+
+            else if (intInput == 8){
                 continue;
-            } else {
+            } else{
                 continue;
             }
 
